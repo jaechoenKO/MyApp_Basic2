@@ -6,7 +6,7 @@ android {
 
 
     defaultConfig {
-        applicationId "com.example.app6"
+        applicationId "kr.co.callinggroup.app6"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
