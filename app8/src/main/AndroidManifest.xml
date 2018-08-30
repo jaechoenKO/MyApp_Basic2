@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.app8">
+
+    <!-- RECEIVE_SMS를 받는 권한 설정 -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- SMS 리시버 등록-->
+        <receiver android:name=".MySMSReceiver"
+            android:enabled="true"
+            android:exported="true">
+
+            <!--해당하는 리시버 즉 intent만 받겠다. intent-filter에서 등록-->
+            <intent-filter>
+                <!--
+                    SMS intent만 받겠다.
+                    Telephony : 전화 통화와 관련된 모듈
+                -->
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
